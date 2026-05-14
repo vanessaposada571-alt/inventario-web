@@ -1,0 +1,61 @@
+@page
+@model WebApplication24_02.Pages.Categories.IndexModel
+@{
+    ViewData["Title"] = "Categorías";
+}
+<div class="inventory-hero mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <h1 class="mb-0"><i class="bi bi-box-seam"></i> Gestión de Categorías</h1>
+        <a asp-page="Create" class="btn btn-success btn-lg"><i class="bi bi-plus-circle"></i> Nueva Categoría</a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover shadow-sm">
+        <thead class="table-light">
+            <tr>
+                <th style="width:5%">Id</th>
+                <th style="width:20%">Nombre</th>
+                <th style="width:45%">Productos</th>
+                <th style="width:20%">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Categories)
+        {
+            <tr>
+                <td class="align-middle">@item.CategoryId</td>
+                <td class="align-middle fw-semibold">@item.Name</td>
+                <td class="align-middle">
+                    @if (item.Products != null && item.Products.Any())
+                    {
+                        <ul class="mb-0 ps-3">
+                            @foreach (var p in item.Products)
+                            {
+                                <li><span class="badge bg-info text-dark">@p.Name</span> <span class="text-secondary">@p.Price.ToString("C")</span></li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin productos</span>
+                    }
+                </td>
+                <td class="align-middle">
+                    <div class="btn-group" role="group">
+                        <a asp-page="Edit" asp-route-id="@item.CategoryId" class="btn btn-outline-primary btn-sm" title="Editar"><i class="bi bi-pencil-square"></i></a>
+                        <a asp-page="Details" asp-route-id="@item.CategoryId" class="btn btn-outline-info btn-sm" title="Detalles"><i class="bi bi-info-circle"></i></a>
+                        <a asp-page="Delete" asp-route-id="@item.CategoryId" class="btn btn-outline-danger btn-sm" title="Eliminar"><i class="bi bi-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<footer class="mt-4 pt-3 border-top d-flex justify-content-between">
+    <div>
+        <a class="nav-link d-inline text-dark" asp-page="/Index"><i class="bi bi-house"></i> Home</a>
+        <a class="nav-link d-inline text-dark" asp-page="/Privacy"><i class="bi bi-shield-lock"></i> Privacy</a>
+    </div>
+    <span class="text-muted">Inventario Web &copy; @DateTime.Now.Year</span>
+</footer>

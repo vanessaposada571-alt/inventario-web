@@ -1,0 +1,60 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('/images/imagen3.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    background-color: #f8fafc;
+
+/* Mejoras visuales para tablas y botones */
+.table thead th {
+  vertical-align: middle;
+}
+.table-hover tbody tr:hover {
+  background-color: #e9f7f0;
+}
+.btn-outline-primary, .btn-outline-info, .btn-outline-danger {
+  margin-right: 0.2rem;
+}
+.btn-group .btn {
+  min-width: 36px;
+}
+.inventory-hero {
+  background: linear-gradient(90deg, #f7fcfe 0%, #e9f7f0 100%);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 18px rgba(13, 38, 59, 0.04);
+}
+.inventory-hero h1 {
+  color: #0b3b2e;
+}
+.table-bordered {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.badge.bg-info {
+  font-size: 0.95em;
+}
+
+.fondo {
+   backdrop-filter:blur(50px)
+}

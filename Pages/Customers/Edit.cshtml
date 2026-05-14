@@ -1,0 +1,26 @@
+@page
+@model WebApplication24_02.Pages.Customers.EditModel
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+<h2>Editar Cliente</h2>
+<form method="post">
+    <input type="hidden" asp-for="Customer.CustomerId" />
+    <div class="mb-3">
+        <label asp-for="Customer.Name" class="form-label"></label>
+        <input asp-for="Customer.Name" class="form-control" />
+        <span asp-validation-for="Customer.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Customer.Phone" class="form-label"></label>
+        <input asp-for="Customer.Phone" class="form-control" />
+        <span asp-validation-for="Customer.Phone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Customer.Address" class="form-label"></label>
+        <input asp-for="Customer.Address" class="form-control" />
+        <span asp-validation-for="Customer.Address" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar Cambios</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

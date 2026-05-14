@@ -1,0 +1,18 @@
+/* Inventory-friendly hero background for the home page */
+.inventory-hero {
+  background: linear-gradient(90deg, #f7fcfe 0%, #e9f7f0 100%);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 18px rgba(13, 38, 59, 0.04);
+}
+.inventory-hero h1 {
+  color: #0b3b2e; /* deep green for headings */
+}
+.inventory-hero .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+.inventory-hero .btn-secondary {
+  background-color: #198754;
+  border-color: #198754;
+}

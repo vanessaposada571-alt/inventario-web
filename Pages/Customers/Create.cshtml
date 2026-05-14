@@ -1,0 +1,25 @@
+@page
+@model WebApplication24_02.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Crear Cliente";
+}
+<h2>Crear Cliente</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Customer.Name" class="form-label"></label>
+        <input asp-for="Customer.Name" class="form-control" />
+        <span asp-validation-for="Customer.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Customer.Phone" class="form-label"></label>
+        <input asp-for="Customer.Phone" class="form-control" />
+        <span asp-validation-for="Customer.Phone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Customer.Address" class="form-label"></label>
+        <input asp-for="Customer.Address" class="form-control" />
+        <span asp-validation-for="Customer.Address" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i> Guardar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,9 @@
+﻿@page
+@model dynamic
+@{
+    ViewData["Title"] = "Productos";
+}
+<h1>CRUD de Productos</h1>
+<!-- Aquí irá el CRUD de productos -->  
+<a class="nav-link text-dark" asp-page="/Index">Home</a>
+<a class="nav-link text-dark" asp-page="/Privacy">Privacy</a>       

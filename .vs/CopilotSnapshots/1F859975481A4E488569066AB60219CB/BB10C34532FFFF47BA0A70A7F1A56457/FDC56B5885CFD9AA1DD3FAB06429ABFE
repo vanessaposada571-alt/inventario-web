@@ -1,0 +1,18 @@
+﻿@page
+@{
+    ViewData["Title"] = "Inventario SAMPLE BD";
+}
+<div class="container">
+    <div class="inventory-hero">
+        <h1 class="mt-4">Bienvenidos ☝️☝️☝️☝️☝️</h1>
+        <p class="mb-3">Accede a las opciones disponibles:</p>
+        <div class="d-flex gap-2">
+            <a asp-page="/Products/Index" class="btn btn-primary">Crear Productos</a>
+            <a asp-page="/Categories/Index" class="btn btn-secondary">Crear Categorías</a>
+            <a asp-page="/Privacy" class="btn btn-link">Privacy</a>
+        </div>
+    </div>
+    <hr />
+</div>
+
+<link rel="stylesheet" href="~/css/inventory.css" />

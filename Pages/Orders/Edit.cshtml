@@ -1,0 +1,26 @@
+@page
+@model WebApplication24_02.Pages.Orders.EditModel
+@{
+    ViewData["Title"] = "Editar Pedido";
+}
+<h2>Editar Pedido</h2>
+<form method="post">
+    <input type="hidden" asp-for="Order.OrderId" />
+    <div class="mb-3">
+        <label asp-for="Order.CustomerId" class="form-label">Cliente</label>
+        <select asp-for="Order.CustomerId" class="form-select" asp-items="Model.CustomerOptions"></select>
+        <span asp-validation-for="Order.CustomerId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Productos</label>
+        <select asp-for="SelectedProductIds" class="form-select" multiple size="6">
+            @foreach (var p in Model.ProductOptions)
+            {
+                <option value="@p.Value" selected="@(Model.SelectedProductIds.Contains(int.Parse(p.Value)) ? "selected" : null)">@p.Text</option>
+            }
+        </select>
+        <span class="form-text">Mantén presionada la tecla Ctrl (o Cmd) para seleccionar varios productos.</span>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar Cambios</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

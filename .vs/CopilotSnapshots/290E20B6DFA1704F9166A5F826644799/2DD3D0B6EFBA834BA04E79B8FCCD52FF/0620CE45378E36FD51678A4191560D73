@@ -1,0 +1,12 @@
+﻿@page
+@model dynamic
+@{
+    ViewData["Title"] = "Inicio";
+}
+<h1>Bienvenido</h1>
+<ul>
+    <li>
+        <a asp-page="/Products/Index">CRUD de Productos</a>
+    </li>
+    <li><a asp-page="/Categories/Index">CRUD de Categorías</a></li>
+</ul>

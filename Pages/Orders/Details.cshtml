@@ -1,0 +1,32 @@
+@page
+@model WebApplication24_02.Pages.Orders.DetailsModel
+@{
+    ViewData["Title"] = "Detalles del Pedido";
+}
+<h2>Detalles del Pedido</h2>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Cliente</dt>
+        <dd class="col-sm-10">@Model.Order.Customer?.Name</dd>
+        <dt class="col-sm-2">Fecha</dt>
+        <dd class="col-sm-10">@Model.Order.OrderDate.ToString("yyyy-MM-dd")</dd>
+        <dt class="col-sm-2">Productos</dt>
+        <dd class="col-sm-10">
+            @if (Model.Order.Products != null && Model.Order.Products.Any())
+            {
+                <ul>
+                @foreach (var p in Model.Order.Products)
+                {
+                    <li>@p.Name (@p.Price.ToString("C"))</li>
+                }
+                </ul>
+            }
+            else
+            {
+                <span class="text-muted">Sin productos</span>
+            }
+        </dd>
+    </dl>
+    <a asp-page="Edit" asp-route-id="@Model.Order.OrderId" class="btn btn-primary">Editar</a>
+    <a asp-page="Index" class="btn btn-secondary">Volver</a>
+</div>

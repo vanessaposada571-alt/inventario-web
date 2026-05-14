@@ -1,0 +1,57 @@
+@page
+@model WebApplication24_02.Pages.Orders.IndexModel
+@{
+    ViewData["Title"] = "Pedidos";
+}
+<div class="inventory-hero mb-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <h1 class="mb-0"><i class="bi bi-cart"></i> Gestión de Pedidos</h1>
+        <a asp-page="Create" class="btn btn-success btn-lg"><i class="bi bi-plus-circle"></i> Nuevo Pedido</a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover shadow-sm">
+        <thead class="table-light">
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Productos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td class="align-middle">@item.OrderId</td>
+                <td class="align-middle">@item.OrderDate.ToString("yyyy-MM-dd")</td>
+                <td class="align-middle">@item.Customer?.Name</td>
+                <td class="align-middle">
+                    @if (item.Products != null && item.Products.Any())
+                    {
+                        <ul class="mb-0 ps-3">
+                            @foreach (var p in item.Products)
+                            {
+                                <li><span class="badge bg-info text-dark">@p.Name</span> <span class="text-secondary">@p.Price.ToString("C")</span></li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin productos</span>
+                    }
+                </td>
+                <td class="align-middle">
+                    <div class="btn-group" role="group">
+                        <a asp-page="Edit" asp-route-id="@item.OrderId" class="btn btn-outline-primary btn-sm" title="Editar"><i class="bi bi-pencil-square"></i></a>
+                        <a asp-page="Details" asp-route-id="@item.OrderId" class="btn btn-outline-info btn-sm" title="Detalles"><i class="bi bi-info-circle"></i></a>
+                        <a asp-page="Delete" asp-route-id="@item.OrderId" class="btn btn-outline-danger btn-sm" title="Eliminar"><i class="bi bi-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<a class="nav-link text-dark" asp-page="/Index">Home</a>
