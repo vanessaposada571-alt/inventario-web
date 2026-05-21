@@ -84,7 +84,7 @@
               "RelativeDocumentMoniker": "Pages\\Products\\Index.cshtml",
               "ToolTip": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Pages\\Products\\Index.cshtml",
               "RelativeToolTip": "Pages\\Products\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-05-21T16:40:09.941Z",
               "EditorCaption": ""
@@ -111,8 +111,7 @@
               "RelativeToolTip": "Data\\SampleDbContext.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T15:26:38.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-21T15:26:38.136Z"
             },
             {
               "$type": "Document",
