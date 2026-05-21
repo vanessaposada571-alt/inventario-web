@@ -6,6 +6,7 @@
 <h2>Editar Pedido</h2>
 <form method="post">
     <input type="hidden" asp-for="Order.OrderId" />
+    <input type="hidden" asp-for="Order.OrderDate" />
     <div class="mb-3">
         <label asp-for="Order.CustomerId" class="form-label">Cliente</label>
         <select asp-for="Order.CustomerId" class="form-select" asp-items="Model.CustomerOptions"></select>

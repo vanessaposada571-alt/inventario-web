@@ -43,6 +43,13 @@ builder.Services.AddDbContext<SampleDbContext>(options =>
 
 var app = builder.Build();
 
+var cultureInfo = new System.Globalization.CultureInfo("es-CO");
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(cultureInfo),
+    SupportedCultures = new[] { cultureInfo },
+    SupportedUICultures = new[] { cultureInfo }
+});
 // --- BLOQUE AÑADIDO: CREACIÓN AUTOMÁTICA DE TABLAS ---
 using (var scope = app.Services.CreateScope())
 {
