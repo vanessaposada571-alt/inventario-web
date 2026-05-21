@@ -7,6 +7,7 @@ using WebApplication24_02.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System; // Agregamos System para poder usar DateTime
 
 namespace WebApplication24_02.Pages.Orders
 {
@@ -47,10 +48,17 @@ namespace WebApplication24_02.Pages.Orders
             var orderToUpdate = await _context.Orders
                 .Include(o => o.Products)
                 .FirstOrDefaultAsync(o => o.OrderId == Order.OrderId);
+
             if (orderToUpdate == null)
                 return RedirectToPage("Index");
+
             orderToUpdate.CustomerId = Order.CustomerId;
-            orderToUpdate.OrderDate = Order.OrderDate;
+
+            // --- CORRECCIÓN DE FECHA ---
+            // Asignamos la fecha y hora exactas de este instante
+            orderToUpdate.OrderDate = DateTime.Now;
+            // ---------------------------
+
             orderToUpdate.Products.Clear();
             if (SelectedProductIds.Any())
             {
