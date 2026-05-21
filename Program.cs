@@ -22,6 +22,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 // Register DbContext for DI
 // 1. Obtenemos la conexión y ELIMINAMOS espacios o saltos de línea invisibles con Trim()
+// 1. Obtenemos la conexión y limpiamos espacios
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")?.Trim();
 
 // 2. Traducimos la URL al idioma de Npgsql
@@ -29,7 +30,11 @@ if (!string.IsNullOrEmpty(connectionString) && (connectionString.StartsWith("pos
 {
     var databaseUri = new Uri(connectionString);
     var userInfo = databaseUri.UserInfo.Split(':');
-    connectionString = $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.LocalPath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Prefer;Trust Server Certificate=true;";
+
+    // CORRECCIÓN: Si no hay puerto en la URL (Render devuelve -1), usamos el estándar 5432
+    var port = databaseUri.Port > 0 ? databaseUri.Port : 5432;
+
+    connectionString = $"Host={databaseUri.Host};Port={port};Database={databaseUri.LocalPath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Prefer;Trust Server Certificate=true;";
 }
 
 // 3. Inyectamos la base de datos
