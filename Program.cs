@@ -20,8 +20,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = "/Account/AccessDenied";
     });
 
-// Register DbContext for DI
-// 1. Obtenemos la conexión y ELIMINAMOS espacios o saltos de línea invisibles con Trim()
 // 1. Obtenemos la conexión y limpiamos espacios
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")?.Trim();
 
@@ -41,8 +39,15 @@ if (!string.IsNullOrEmpty(connectionString) && (connectionString.StartsWith("pos
 builder.Services.AddDbContext<SampleDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-
 var app = builder.Build();
+
+// --- BLOQUE AÑADIDO: CREACIÓN AUTOMÁTICA DE TABLAS ---
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<SampleDbContext>();
+    dbContext.Database.Migrate();
+}
+// -----------------------------------------------------
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -53,18 +58,16 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
 // 2. ACTIVAR LA SEGURIDAD (EL ORDEN ES VITAL)
-app.UseAuthentication(); // <--- AGREGAR ESTO: ¿Quién eres?
+app.UseAuthentication(); // <--- ¿Quién eres?
 app.UseAuthorization();  // <--- ¿Tienes permiso?
 
 // Map controller routes and Razor Pages
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.MapRazorPages();
 
 app.Run();
