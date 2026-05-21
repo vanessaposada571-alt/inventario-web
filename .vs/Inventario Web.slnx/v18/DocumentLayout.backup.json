@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|solutionrelative:pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|c:\\users\\usuario\\documents\\herramientasdeprogramacion3-2026\\webapplication24-02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|c:\\users\\usuario\\documents\\herramientasdeprogramacion3-2026\\webapplication24-02\\data\\sampledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|solutionrelative:data\\sampledbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|c:\\users\\usuario\\documents\\herramientasdeprogramacion3-2026\\webapplication24-02\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A969F3B7-392E-032F-7E75-6ADC9B524855}|Inventario Web.csproj|solutionrelative:pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -34,8 +42,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SampleDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Data\\SampleDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\SampleDbContext.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Data\\SampleDbContext.cs",
+              "RelativeToolTip": "Data\\SampleDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T15:26:38.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T15:07:40.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -44,14 +82,14 @@
               "RelativeDocumentMoniker": "Pages\\Account\\Logout.cshtml.cs",
               "ToolTip": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Pages\\Account\\Logout.cshtml.cs",
               "RelativeToolTip": "Pages\\Account\\Logout.cshtml.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABAAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T21:27:27.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Logout.cshtml",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Pages\\Account\\Logout.cshtml",
               "RelativeDocumentMoniker": "Pages\\Account\\Logout.cshtml",
@@ -59,12 +97,11 @@
               "RelativeToolTip": "Pages\\Account\\Logout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-13T21:25:29.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T21:25:29.95Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -76,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
@@ -88,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -100,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Inventario Web",
               "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\herramientasDeProgramacion3-2026\\WebApplication24-02\\Inventario Web.csproj",
               "RelativeDocumentMoniker": "Inventario Web.csproj",

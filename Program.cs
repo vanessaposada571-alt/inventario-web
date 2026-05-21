@@ -21,15 +21,18 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 // Register DbContext for DI
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgres://"))
+// 1. Obtenemos la conexión y ELIMINAMOS espacios o saltos de línea invisibles con Trim()
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")?.Trim();
+
+// 2. Traducimos la URL al idioma de Npgsql
+if (!string.IsNullOrEmpty(connectionString) && (connectionString.StartsWith("postgres://") || connectionString.StartsWith("postgresql://")))
 {
     var databaseUri = new Uri(connectionString);
     var userInfo = databaseUri.UserInfo.Split(':');
     connectionString = $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.LocalPath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Prefer;Trust Server Certificate=true;";
 }
 
-// Usamos Npgsql (PostgreSQL) en lugar de SqlServer
+// 3. Inyectamos la base de datos
 builder.Services.AddDbContext<SampleDbContext>(options =>
     options.UseNpgsql(connectionString));
 
