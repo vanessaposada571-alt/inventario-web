@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace WebApplication24_02.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPhoneAndAddressToCustomer : Migration
+    public partial class InicialPostgres : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,9 +16,9 @@ namespace WebApplication24_02.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    CategoryId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,11 +29,11 @@ namespace WebApplication24_02.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    CustomerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    CustomerId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Phone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Address = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,11 +44,11 @@ namespace WebApplication24_02.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: true)
+                    ProductId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Price = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
+                    CategoryId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,10 +64,10 @@ namespace WebApplication24_02.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    OrderId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: false)
+                    OrderId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    OrderDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CustomerId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,8 +84,8 @@ namespace WebApplication24_02.Migrations
                 name: "OrderProduct",
                 columns: table => new
                 {
-                    OrdersOrderId = table.Column<int>(type: "int", nullable: false),
-                    ProductsProductId = table.Column<int>(type: "int", nullable: false)
+                    OrdersOrderId = table.Column<int>(type: "integer", nullable: false),
+                    ProductsProductId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

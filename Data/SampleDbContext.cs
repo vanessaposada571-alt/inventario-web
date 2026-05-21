@@ -16,13 +16,11 @@ public partial class SampleDbContext : DbContext
     {
     }
 
+    // Tablas de tu proyecto
     public virtual DbSet<Category> Categories { get; set; }
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<Customer> Customers { get; set; }
     public virtual DbSet<Order> Orders { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SampleDb;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,7 +50,6 @@ public partial class SampleDbContext : DbContext
                   .HasForeignKey(o => o.CustomerId);
 
             // CORRECCIÓN PARA LA TABLA INTERMEDIA (Muchos a Muchos)
-            // Esto mapea exactamente con tu Snapshot de la base de datos
             entity.HasMany(o => o.Products)
                   .WithMany(p => p.Orders)
                   .UsingEntity<Dictionary<string, object>>(

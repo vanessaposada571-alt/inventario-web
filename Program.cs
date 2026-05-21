@@ -21,10 +21,18 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 // Register DbContext for DI
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Server=(localdb)\\MSSQLLocalDB;Database=SampleDb;Trusted_Connection=True;TrustServerCertificate=True;";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgres://"))
+{
+    var databaseUri = new Uri(connectionString);
+    var userInfo = databaseUri.UserInfo.Split(':');
+    connectionString = $"Host={databaseUri.Host};Port={databaseUri.Port};Database={databaseUri.LocalPath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Prefer;Trust Server Certificate=true;";
+}
 
-builder.Services.AddDbContext<SampleDbContext>(options => options.UseSqlServer(connectionString));
+// Usamos Npgsql (PostgreSQL) en lugar de SqlServer
+builder.Services.AddDbContext<SampleDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
 
 var app = builder.Build();
 
